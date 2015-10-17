@@ -13,7 +13,7 @@ class Eventick(object):
         self.password = password
 
         try:
-            self.__token = requests.get(URL + 'tokens.json', auth=HTTPBasicAuth(self.email, self.password)).json()
+            self.__token = requests.get(self.get_url_api('tokens.json'), auth=HTTPBasicAuth(self.email, self.password)).json()
         except:
             raise AuthenticationError('Authentication failed!')
 
