@@ -27,3 +27,11 @@ class Eventick(object):
     def get_url_api(self, url):
         '''Return api url'''
         return URL + '{}'.format(url)
+
+    def events(self):
+        '''Return a json with list of events'''
+        try:
+            request = requests.get(self.get_url_api('events.json'), auth=self.get_token()).json()
+        except:
+            raise ConectionError('Connection failed!')
+        return request
