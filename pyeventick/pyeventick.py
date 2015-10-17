@@ -24,4 +24,6 @@ class Eventick(object):
         else:
             return (self.email, self.password)
 
-    
+    def get_url_api(self, url):
+        '''Return api url'''
+        return URL + '{}'.format(url)
