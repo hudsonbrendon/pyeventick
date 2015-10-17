@@ -3,6 +3,7 @@
 import requests
 from requests.auth import HTTPBasicAuth
 from exception import ConectionError, AuthenticationError
+from time import strftime
 
 
 URL = 'https://www.eventick.com.br/api/v1/'
@@ -36,10 +37,18 @@ class Eventick(object):
             raise ConectionError('Connection failed!')
         return request
 
-    def event(self, ID):
+    def event(self, event_id):
         '''Returns a json with iformations of a event'''
         try:
-            request = requests.get(self.get_url_api('events/{}.json').format(ID), auth=self.get_token()).json()
+            request = requests.get(self.get_url_api('events/{}.json').format(event_id), auth=self.get_token()).json()
+        except:
+            raise ConectionError('Connection failed!')
+        return request
+
+    def attendees(self, event_id, checked_after):
+        '''Allows you to access the list of participants for an event and inform the Eventick participants whose check-in has been accomplished.'''
+        try:
+            request = requests.get(self.get_url_api('events/{}/attendees.json?checked_after={}').format(event_id, checked_after), auth=self.get_token()).json()
         except:
             raise ConectionError('Connection failed!')
         return request
