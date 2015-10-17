@@ -35,3 +35,11 @@ class Eventick(object):
         except:
             raise ConectionError('Connection failed!')
         return request
+
+    def event(self, ID):
+        '''Returns a json with iformations of a event'''
+        try:
+            request = requests.get(self.get_url_api('events/{}.json').format(ID), auth=self.get_token()).json()
+        except:
+            raise ConectionError('Connection failed!')
+        return request
