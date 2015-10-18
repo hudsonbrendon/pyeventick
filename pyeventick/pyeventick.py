@@ -3,18 +3,17 @@
 import requests
 from requests.auth import HTTPBasicAuth
 from exception import ConectionError, AuthenticationError
-
-
+from datetime import datetime
 
 URL = 'https://www.eventick.com.br/api/v1/'
 
 class Eventick(object):
     def __init__(self, email, password):
-        self.email = email
-        self.password = password
+        self.__email = email
+        self.__password = password
 
         try:
-            self.__token = requests.get(self.get_url_api('tokens.json'), auth=HTTPBasicAuth(self.email, self.password)).json()
+            self.__token = requests.get(self.get_url_api('tokens.json'), auth=HTTPBasicAuth(self.__email, self.__password)).json()
         except:
             raise AuthenticationError('Authentication failed!')
 
@@ -45,9 +44,12 @@ class Eventick(object):
             raise ConectionError('Connection failed!')
         return request
 
-    def attendees(self, event_id, checked_after):
+    def attendees(self, event_id, checked_after=None):
         '''Returns a json with all participants of an event'''
         try:
+            if checked_after is None:
+                checked_after = datetime.now()
+                checked_after = checked_after.strftime('%Y-%m-%dT%H:%M:%S-03:00')
             request = requests.get(self.get_url_api('events/{}/attendees.json?checked_after={}').format(event_id, checked_after), auth=self.get_token()).json()
         except:
             raise ConectionError('Connection failed!')
@@ -60,3 +62,11 @@ class Eventick(object):
         except:
             raise ConectionError('Connection failed!')
         return request
+
+    def checkin(self, event_id, code, checked_at):
+        ''''''
+        try:
+            request = requests.put(self.get_url_api('events/{}/attendees/{}.json?checked_at={}').format(event_id, code, checked_at), auth=self.get_token())
+        except:
+            raise ConectionError('Connection failed!')
+        return request.status_code
