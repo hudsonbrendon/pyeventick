@@ -16,6 +16,8 @@ $ python setup.py install
 ```
 # Usage
 
+To access the API, you need to login, use this
+
 ```python
 >>> from pyeventick import Eventick
 
@@ -44,7 +46,7 @@ This returns you a dictionary of all the events.
 ```
 ## Event
 
-To get the data of just one event, use
+To get the data of just one event, use it
 ```python
 >>> eventick.event(event_id)
 ```
@@ -75,15 +77,15 @@ This returns you a dictionary of all the attendees.
     [
       {
         u'code': u'NWJ2MXZN',
-        u'name': u'User 1',
-        u'ticket_type': u'Gratuito',
+        u'name': u'Attendee 1',
+        u'ticket_type': u'Gratuito'.,
         u'id': 874921,
         u'checked_at':u'2015-09-10 16:00:00 -0300',
         u'email': u'email@email.com'
       },
       {
         u'code': u'XS40UGTT',
-        u'name': u'User 2',
+        u'name': u'Attendee 2',
         u'ticket_type': u'Gratuito',
         u'id': 874928,
         u'checked_at': u'2015-10-17 16:00:00 -0300',
@@ -91,7 +93,7 @@ This returns you a dictionary of all the attendees.
       },
       {
         u'code': u'IASUP7DU',
-        u'name': u'User 3',
+        u'name': u'Attendee 3',
         u'ticket_type': u'Gratuito',
         u'id': 873326,
         u'checked_at': u'2015-09-10 16:00:00 -0300',
@@ -116,7 +118,7 @@ This returns a dictionary with information from an attendee.
     [
       {
         u'code': u'NWJ2MXZN',
-        u'name': u'User 1',
+        u'name': u'Attendee 1',
         u'ticket_type': u'Gratuito',
         u'id': 874921,
         u'checked_at':u'2015-09-10 16:00:00 -0300',
@@ -134,7 +136,7 @@ To check a participant use it
 ## Check-in all
 To check in with multiple participants use it
 ```python
->>> eventick.checkin(event_id, attendees)
+>>> eventick.checkin_all(event_id, attendees)
 ```
 
 # Dependencies
