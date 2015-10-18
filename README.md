@@ -125,14 +125,14 @@ This returns a dictionary with information from an attendee.
     ]
 }
 ```
-## Checkin
+## Check-in
 To check a participant use it
 ```python
 >>> eventick.checkin(event_id, code, checked_at)
 ```
 
-## Checkin all
-To check in with multiple users use it
+## Check-in all
+To check in with multiple participants use it
 ```python
 >>> eventick.checkin(event_id, attendees)
 ```
