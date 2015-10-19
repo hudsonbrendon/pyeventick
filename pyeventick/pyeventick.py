@@ -2,7 +2,7 @@
 
 import requests
 from requests.auth import HTTPBasicAuth
-from exception import ConectionError, AuthenticationError
+from exception import ConnectionError, AuthenticationError
 from datetime import datetime
 import json
 
@@ -26,7 +26,7 @@ class Eventick(object):
             return (self.email, self.password)
 
     def get_api_url(self, url):
-        '''Returns a json with the list of events'''
+        '''Returns a url'''
         return URL + '{}'.format(url)
 
     def events(self):
@@ -34,7 +34,7 @@ class Eventick(object):
         try:
             request = requests.get(self.get_api_url('events.json'), auth=self.get_token()).json()
         except:
-            raise ConectionError('Connection failed!')
+            raise ConnectionError('Connection failed!')
         return request
 
     def event(self, event_id):
@@ -42,7 +42,7 @@ class Eventick(object):
         try:
             request = requests.get(self.get_api_url('events/{}.json').format(event_id), auth=self.get_token()).json()
         except:
-            raise ConectionError('Connection failed!')
+            raise ConnectionError('Connection failed!')
         return request
 
     def attendees(self, event_id, checked_after=None):
@@ -53,7 +53,7 @@ class Eventick(object):
                 checked_after = checked_after.strftime('%Y-%m-%dT%H:%M:%S-03:00')
             request = requests.get(self.get_api_url('events/{}/attendees.json?checked_after={}').format(event_id, checked_after), auth=self.get_token()).json()
         except:
-            raise ConectionError('Connection failed!')
+            raise ConnectionError('Connection failed!')
         return request
 
     def attendee(self, event_id, ID):
@@ -61,21 +61,21 @@ class Eventick(object):
         try:
             request = requests.get(self.get_api_url('events/{}/attendees/{}.json').format(event_id, ID), auth=self.get_token()).json()
         except:
-            raise ConectionError('Connection failed!')
+            raise ConnectionError('Connection failed!')
         return request
 
     def checkin(self, event_id, code, checked_at):
-        ''''''
+        '''Performs the check in of a participant in an event'''
         try:
             request = requests.put(self.get_api_url('events/{}/attendees/{}.json?checked_at={}').format(event_id, code, checked_at), auth=self.get_token())
         except:
-            raise ConectionError('Connection failed!')
+            raise ConnectionError('Connection failed!')
         return request.status_code
 
     def checkin_all(self, event_id, attendees):
-        ''''''
+        '''Performs the check in of several participants of an event'''
         try:
             request = requests.put(self.get_api_url('events/{}/attendees/check_all.json').format(event_id), auth=self.get_token(), data=json.dumps(attendees), headers={'Content-Type': 'application/json'})
         except:
-            raise ConectionError('Connection failed!')
+            raise ConnectionError('Connection failed!')
         return request.status_code

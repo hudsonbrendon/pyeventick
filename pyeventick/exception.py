@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-class ConectionError(Exception):
+class ConnectionError(Exception):
     pass
 
 class AuthenticationError(Exception):
