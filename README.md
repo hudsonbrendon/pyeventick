@@ -48,7 +48,7 @@ This returns you a dictionary of all the events.
 
 To get the data of just one event, use it
 ```python
->>> eventick.event(event_id)
+>>> eventick.event(20585)
 ```
 This returns a dictionary with information from an event.
 ```python
@@ -67,7 +67,7 @@ This returns a dictionary with information from an event.
 ## Attendees
 To list all the attendees, use it
 ```python
->>> eventick.attendees(event_id, checked_after=None)
+>>> eventick.attendees(20585, '2015-09-10 16:00:00 -0300')
 ```
 This returns you a dictionary of all the attendees.
 
@@ -88,7 +88,7 @@ This returns you a dictionary of all the attendees.
         u'name': u'Attendee 2',
         u'ticket_type': u'Gratuito',
         u'id': 874928,
-        u'checked_at': u'2015-10-17 16:00:00 -0300',
+        u'checked_at': u'2015-09-10 16:00:00 -0300',
         u'email': u'email@email.com'
       },
       {
@@ -108,7 +108,7 @@ This returns you a dictionary of all the attendees.
 To get the data of just one event, attendee
 
 ```python
->>> eventick.attendee(event_id, ID)
+>>> eventick.attendee(20585, 874921)
 ```
 This returns a dictionary with information from an attendee.
 
