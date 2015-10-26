@@ -130,14 +130,16 @@ This returns a dictionary with information from an attendee.
 ## Check-in
 To check a participant use it
 ```python
->>> eventick.checkin(event_id, code, checked_at)
+>>> eventick.checkin(12345, 'XXXXXXXX', '2015-10-17T16:54:35-03:00')
 ```
+This returns a code 200.
 
 ## Check-in all
 To check in with multiple participants use it
 ```python
->>> eventick.checkin_all(event_id, attendees)
+>>> eventick.checkin_all(21091, {"attendees":[{"id":12345,"checked_at":"2015-10-17T16:54:35-03:00"}, {"id":67890,"checked_at":"2015-10-17T16:54:35-03:00"}]})
 ```
+This returns a code 200.
 
 # Dependencies
 - Python 2.7
