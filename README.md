@@ -2,7 +2,7 @@
 
 ![Logo](logo.png)
 
-Simple integrate of API eventick.com.br with python
+Simple integrate of eventick.com.br API  with Python
 
 # Quick start
 
@@ -16,7 +16,7 @@ $ python setup.py install
 ```
 # Usage
 
-To access the API, you need to login, use this
+To access the API you`ll need to login, use: 
 
 ```python
 >>> from pyeventick import Eventick
@@ -25,11 +25,11 @@ To access the API, you need to login, use this
 ```
 
 ## Events
-To list all the events, use it
+To list all the events, use:  
 ```python
 >>> eventick.events()
 ```
-This returns you a dictionary of all the events.
+This returns a dictionary of all the events.
 
 ```python
 {
@@ -46,11 +46,11 @@ This returns you a dictionary of all the events.
 ```
 ## Event
 
-To get the data of just one event, use it
+To get the data of just one event, use: 
 ```python
 >>> eventick.event(20585)
 ```
-This returns a dictionary with information from an event.
+It returns a dictionary with information from an event.
 ```python
 {
   u'events': [
@@ -65,11 +65,11 @@ This returns a dictionary with information from an event.
 }
 ```
 ## Attendees
-To list all the attendees, use it
+To list all the attendees, use: 
 ```python
 >>> eventick.attendees(20585, '2015-09-10 16:00:00 -0300')
 ```
-This returns you a dictionary of all the attendees.
+It returns a dictionary with all the attendees information.
 
 ```python
 {
@@ -105,12 +105,12 @@ This returns you a dictionary of all the attendees.
 
 ## Attendee
 
-To get the data of just one event, attendee
+To get data from just one specific event/attendee: 
 
 ```python
 >>> eventick.attendee(20585, 874921)
 ```
-This returns a dictionary with information from an attendee.
+It returns a dictionary with information from one attendee.
 
 ```python
 {
@@ -128,18 +128,18 @@ This returns a dictionary with information from an attendee.
 }
 ```
 ## Check-in
-To check a participant use it
+To check in a participant use: 
 ```python
 >>> eventick.checkin(12345, 'XXXXXXXX', '2015-10-17T16:54:35-03:00')
 ```
-This returns a code 200.
+It returns a 200 code.
 
 ## Check-in all
-To check in with multiple participants use it
+To check in multiple participants use: 
 ```python
 >>> eventick.checkin_all(21091, {"attendees":[{"id":12345,"checked_at":"2015-10-17T16:54:35-03:00"}, {"id":67890,"checked_at":"2015-10-17T16:54:35-03:00"}]})
 ```
-This returns a code 200.
+It returns a 200 code.
 
 # Dependencies
 - Python 2.7
