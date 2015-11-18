@@ -7,7 +7,7 @@ Simple integrate of eventick.com.br API  with Python
 # Quick start
 
 ```bash
-$ pip install pyfutebits
+$ pip install pyeventick
 ```
 or
 
@@ -16,7 +16,7 @@ $ python setup.py install
 ```
 # Usage
 
-To access the API you`ll need to login, use: 
+To access the API you`ll need to login, use:
 
 ```python
 >>> from pyeventick import Eventick
@@ -46,7 +46,7 @@ This returns a dictionary of all the events.
 ```
 ## Event
 
-To get the data of just one event, use: 
+To get the data of just one event, use:
 ```python
 >>> eventick.event(20585)
 ```
@@ -65,7 +65,7 @@ It returns a dictionary with information from an event.
 }
 ```
 ## Attendees
-To list all the attendees, use: 
+To list all the attendees, use:
 ```python
 >>> eventick.attendees(20585, '2015-09-10 16:00:00 -0300')
 ```
@@ -105,7 +105,7 @@ It returns a dictionary with all the attendees information.
 
 ## Attendee
 
-To get data from just one specific event/attendee: 
+To get data from just one specific event/attendee:
 
 ```python
 >>> eventick.attendee(20585, 874921)
@@ -128,14 +128,14 @@ It returns a dictionary with information from one attendee.
 }
 ```
 ## Check-in
-To check in a participant use: 
+To check in a participant use:
 ```python
 >>> eventick.checkin(12345, 'XXXXXXXX', '2015-10-17T16:54:35-03:00')
 ```
 It returns a 200 code.
 
 ## Check-in all
-To check in multiple participants use: 
+To check in multiple participants use:
 ```python
 >>> eventick.checkin_all(21091, {"attendees":[{"id":12345,"checked_at":"2015-10-17T16:54:35-03:00"}, {"id":67890,"checked_at":"2015-10-17T16:54:35-03:00"}]})
 ```
