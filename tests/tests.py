@@ -25,7 +25,7 @@ class TestEventick(unittest.TestCase):
         self.assertEqual(self.eventick.event(21091)['events'][0]['title'], 'Event test')
 
     def test_attendees(self):
-        self.assertEqual(self.eventick.attendees(40098)['attendees'][0]['code'], '88CMBYT4')
+        self.assertEqual(self.eventick.attendees(40098)['attendees'][0]['code'], 'RFMNXUYC')
 
     def test_attendee(self):
         self.assertEqual(self.eventick.attendee(21091, 911536)['attendees'][0]['code'], 'XWD2I1LH')
