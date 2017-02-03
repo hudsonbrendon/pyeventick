@@ -1,5 +1,7 @@
 # Pyeventick
 
+[![Build Status](https://travis-ci.org/hudsonbrendon/pyeventick.svg?branch=master)](https://travis-ci.org/hudsonbrendon/pyeventick)
+
 ![Logo](logo.png)
 
 Simple integrate of eventick.com.br API  with Python
