@@ -1,6 +1,9 @@
 # Pyeventick
 
 [![Build Status](https://travis-ci.org/hudsonbrendon/pyeventick.svg?branch=master)](https://travis-ci.org/hudsonbrendon/pyeventick)
+[![Beerpay](https://beerpay.io/hudsonbrendon/challenges4dojo/badge.svg)](https://beerpay.io/hudsonbrendon/challenges4dojo)
+[![Github Issues](http://img.shields.io/github/issues/hudsonbrendon/pyeventick.svg?style=flat)](https://github.com/hudsonbrendon/pyeventick/issues?sort=updated&state=open)
+![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ![Logo](logo.png)
 
@@ -27,7 +30,7 @@ To access the API you`ll need to login, use:
 ```
 
 ## Events
-To list all the events, use:  
+To list all the events, use:
 ```python
 >>> eventick.events()
 ```
