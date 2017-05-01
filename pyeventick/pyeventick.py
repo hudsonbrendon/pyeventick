@@ -23,18 +23,18 @@ class Eventick(object):
 
     @property
     def token(self):
-        '''Return a token or credentials.'''
+        """Return a token or credentials."""
         if self.__token:
             return (self.__token.values()[0], '')
         else:
             return (self.email, self.password)
 
     def get_api_url(self, url):
-        '''Returns a url'''
+        """Returns a url"""
         return URL + '{}'.format(url)
 
     def events(self):
-        '''Returns a json with the list of events.'''
+        """Returns a json with the list of events."""
         try:
             request = requests.get(self.get_api_url('events.json'),
                                    auth=self.token).json()
@@ -43,7 +43,7 @@ class Eventick(object):
         return request
 
     def event(self, event_id):
-        '''Returns a json with iformations of a event.'''
+        """Returns a json with iformations of a event."""
         try:
             request = requests.get(self.get_api_url('events/{}.json')
                                    .format(event_id), auth=self.token).json()
@@ -52,7 +52,7 @@ class Eventick(object):
         return request
 
     def attendees(self, event_id, checked_after=None):
-        '''Returns a json with all participants of an event'''
+        """Returns a json with all participants of an event"""
         try:
             if checked_after is None:
                 checked_after = datetime.now()
@@ -80,7 +80,7 @@ class Eventick(object):
         return request
 
     def checkin(self, event_id, code, checked_at):
-        '''Performs the check in of a participant in an event.'''
+        """Performs the check in of a participant in an event."""
         try:
             request = requests.put(self.get_api_url(
                                    'events/{}/attendees/{}.json?checked_at={}')
@@ -91,7 +91,7 @@ class Eventick(object):
         return request.status_code
 
     def checkin_all(self, event_id, attendees):
-        '''Performs the check in of several participants of an event'''
+        """Performs the check in of several participants of an event"""
         try:
             request = requests.put(self.get_api_url(
                                    'events/{}/attendees/check_all.json')
