@@ -1,0 +1,25 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "02a3ac39883f69322d661e71be840ed5bc2f213d918897bcff77062004e4f577"
+        },
+        "requires": {},
+        "sources": [
+            {
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "pyeventick": {
+            "hash": "sha256:cd7a765bb15ff161b14c32a92b03ab5378eccab62aaf87982b5bddee79f130a8",
+            "version": "==0.2"
+        },
+        "requests": {
+            "hash": "sha256:1a720e8862a41aa22e339373b526f508ef0c8988baf48b84d3fc891a8e237efb",
+            "version": "==2.13.0"
+        }
+    },
+    "develop": {}
+}

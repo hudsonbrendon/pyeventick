@@ -1,1 +1,1 @@
-from pyeventick import Eventick
+from pyeventick import pyevEventick
