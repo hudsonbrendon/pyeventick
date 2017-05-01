@@ -152,3 +152,8 @@ It returns a 200 code.
 
 # License
 [MIT](http://en.wikipedia.org/wiki/MIT_License)
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/hudsonbrendon/pyeventick/badge.svg?style=beer-square)](https://beerpay.io/hudsonbrendon/pyeventick)  [![Beerpay](https://beerpay.io/hudsonbrendon/pyeventick/make-wish.svg?style=flat-square)](https://beerpay.io/hudsonbrendon/pyeventick?focus=wish)
